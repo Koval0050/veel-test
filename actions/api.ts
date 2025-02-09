@@ -6,7 +6,7 @@ type UserInfo = {
   password: string;
 };
 
-const API_URL = "http://localhost:5001/api/v1/auth";
+const API_URL = `${process.env.API_PORT}/api/v1/auth`;
 
 export const login = async (data: UserInfo) => {
   try {
