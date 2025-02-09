@@ -27,7 +27,6 @@ export const LoginForm = () => {
     setErrorMessage(null);
 
     const { accessToken } = await loginUser(data);
-    console.log(accessToken);
 
     if (accessToken) {
       document.cookie = `token=${accessToken}; path=/;  SameSite=Lax`;

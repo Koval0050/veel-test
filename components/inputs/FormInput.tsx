@@ -1,12 +1,12 @@
 import { UseFormRegister, FieldValues, Path } from "react-hook-form";
 
-interface FormInputProps<T extends FieldValues> {
+type FormInputProps<T extends FieldValues> = {
   register: UseFormRegister<T>;
-  name: Path<T>; 
+  name: Path<T>;
   type?: string;
-  placeholder: string;
+  placeholder?: string;
   error?: string;
-}
+};
 
 export const FormInput = <T extends FieldValues>({
   register,
@@ -20,8 +20,8 @@ export const FormInput = <T extends FieldValues>({
       <input
         {...register(name)}
         type={type}
-        placeholder={placeholder}
-        className="w-full p-3 text-black  border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder={placeholder || name}
+        className="w-full p-3 text-black border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
       />
       {error && <p className="text-sm text-red-500">{error}</p>}
     </div>

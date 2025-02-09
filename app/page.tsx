@@ -1,11 +1,13 @@
 "use client";
 
+import { useEffect } from "react";
+
 import { useAuthStore } from "@/state/auth";
 import { fetchUser } from "@/actions/api";
-import { useEffect } from "react";
+
 import { UserInfoCard } from "./UserInfoCard";
 
-export default function HomePage() {
+ const  HomePage=()=> {
   const { setUserInfo } = useAuthStore();
 
   useEffect(() => {
@@ -36,3 +38,4 @@ export default function HomePage() {
     </div>
   );
 }
+export default HomePage;

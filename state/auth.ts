@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-
 export type UserInfoState = {
   username: string;
   name: string;
