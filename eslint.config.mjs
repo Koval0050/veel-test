@@ -15,7 +15,7 @@ const eslintConfig = [
     rules: {
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
-      "no-console": "warn",
+      "no-console": ["warn", { allow: ["error"] }],
       "no-debugger": "error",
     },
   },
