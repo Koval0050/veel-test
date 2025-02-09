@@ -28,7 +28,6 @@ export const RegisterForm = () => {
 
   const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
     setErrorMessage("");
-    console.log(data);
 
     try {
       await registerUser({
@@ -37,7 +36,8 @@ export const RegisterForm = () => {
         password: data.password,
       });
       router.push("/login");
-    } catch {
+    } catch (error) {
+      console.error(error);
       setErrorMessage("Registration failed, please try again.");
     }
   };
