@@ -7,7 +7,7 @@ import { fetchUser } from "@/actions/api";
 
 import { UserInfoCard } from "./UserInfoCard";
 
- const  HomePage=()=> {
+const HomePage = () => {
   const { setUserInfo } = useAuthStore();
 
   useEffect(() => {
@@ -37,5 +37,5 @@ import { UserInfoCard } from "./UserInfoCard";
       <UserInfoCard />
     </div>
   );
-}
+};
 export default HomePage;
