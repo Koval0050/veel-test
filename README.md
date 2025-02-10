@@ -20,6 +20,17 @@ Next, run the command
     
 
 application is running on port 5001 swagger is available on: http://localhost:5001/api
+
+## Quick Start
+
+To start this project run
+
+```bash
+  npm i
+  npm run dev
+```
+
+
 ## Screenshots
 
 ![alt text](https://github.com/Koval0050/veel-test/blob/main/public/login.png)
