@@ -30,9 +30,11 @@ const HomePage = () => {
 
   return (
     <div className="page-container">
-      <Typography className="mb-6" variant={TypographyVariants.H1}>
-        Welcome to the Home Page
-      </Typography>
+      <Typography
+        className="mb-6"
+        text=" Welcome to the Home Page"
+        variant={TypographyVariants.H1}
+      />
 
       <UserInfoCard />
     </div>

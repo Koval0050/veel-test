@@ -15,7 +15,7 @@ export const VARIANT_STYLES = {
   h3: "text-center text-3xl font-bold text-gray-800 ",
   h4: "text-2xl font-semiBold",
   h5: "text-xl font-medium",
-  h6: "text-lg font-medium",
+  h6: "text-lg text-gray-800 ",
   p: "text-xl",
   span: "text-sm text-gray-600",
 };

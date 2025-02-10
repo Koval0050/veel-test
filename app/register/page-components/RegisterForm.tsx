@@ -53,9 +53,11 @@ export const RegisterForm = () => {
 
   return (
     <div className="w-115 p-8 bg-white rounded-lg shadow-xl">
-      <Typography className="mb-6" variant={TypographyVariants.H3}>
-        Create an Account
-      </Typography>
+      <Typography
+        className="mb-6"
+        text="Create an Account"
+        variant={TypographyVariants.H3}
+      />
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <FormInput
@@ -95,9 +97,10 @@ export const RegisterForm = () => {
       </form>
 
       <div className="text-center mt-4">
-        <Typography variant={TypographyVariants.SPAN}>
-          Already have an account?
-        </Typography>
+        <Typography
+          text="Already have an account?"
+          variant={TypographyVariants.SPAN}
+        />
 
         <Link href="/login" className="text-blue-500 hover:underline ml-1">
           Login

@@ -6,11 +6,13 @@ import { TypographyVariants } from "@/components/Typography/constants";
 const RegisterPage = () => (
   <div className="page-container">
     <div className="text-center mb-8">
-      <Typography variant={TypographyVariants.H2}>Sign Up</Typography>
+      <Typography text="Sign Up" variant={TypographyVariants.H2} />
 
-      <Typography variant={TypographyVariants.P} className="mt-2">
-        Nice to meet you! Enter your details to register.
-      </Typography>
+      <Typography
+        className="mt-2"
+        text=" Nice to meet you! Enter your details to register."
+        variant={TypographyVariants.P}
+      />
     </div>
 
     <RegisterForm />

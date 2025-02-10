@@ -9,6 +9,7 @@ type Props = PropsWithChildren & {
   variant?: BUTTON_VARIANTS;
   type?: "button" | "submit" | "reset";
   isLoading?: boolean;
+  onClick?: VoidFunction;
 };
 
 export const Button = ({
@@ -16,12 +17,14 @@ export const Button = ({
   variant = BUTTON_VARIANTS.PRIMARY,
   type = "button",
   isLoading = false,
+  onClick,
 }: Props) => (
   <button
-    type={type}
     className={clsx(BASE_STYLES, VARIANT_STYLES[variant], {
       "opacity-50 cursor-not-allowed": isLoading,
     })}
+    onClick={onClick}
+    type={type}
     disabled={isLoading}
   >
     {isLoading ? <Loader size={Sizes.S} /> : children}

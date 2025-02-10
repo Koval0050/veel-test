@@ -3,6 +3,10 @@
 import { useRouter } from "next/navigation";
 
 import { useAuthStore } from "@/state/auth";
+import { Typography } from "../Typography";
+import { TypographyVariants } from "../Typography/constants";
+import { Button } from "../Button";
+import { BUTTON_VARIANTS } from "../Button/constants";
 
 export const UserInfoCard = () => {
   const router = useRouter();
@@ -16,30 +20,36 @@ export const UserInfoCard = () => {
 
   return (
     <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md text-center">
-      <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-        User Information
-      </h2>
+      <Typography
+        className="mb-4"
+        text="User Information"
+        variant={TypographyVariants.H3}
+      />
 
       {userInfo ? (
         <>
-          <p className="text-lg text-gray-800 mb-2">
-            <strong>Username:</strong> {userInfo.username}
-          </p>
-
-          <p className="text-lg text-gray-800 mb-2">
-            <strong>Name:</strong> {userInfo.name}
-          </p>
+          <Typography
+            className="mb-2"
+            text={`Username: ${userInfo.username}`}
+            variant={TypographyVariants.H6}
+          />
+          <Typography
+            className="mb-2"
+            text={`Name: ${userInfo.name}`}
+            variant={TypographyVariants.H6}
+          />
         </>
       ) : (
-        <p className="text-xl text-gray-100">Loading user data...</p>
+        <Typography
+          className="mb-6"
+          text="Loading user data..."
+          variant={TypographyVariants.H6}
+        />
       )}
 
-      <button
-        onClick={handleLogout}
-        className="w-full py-2 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
-      >
+      <Button variant={BUTTON_VARIANTS.SECONDARY} onClick={handleLogout}>
         Logout
-      </button>
+      </Button>
     </div>
   );
 };

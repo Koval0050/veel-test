@@ -29,7 +29,9 @@ To start this project run
   npm i
   npm run dev
 ```
+    
 
+application is available on: http://localhost:3000
 
 ## Screenshots
 
