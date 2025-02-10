@@ -22,9 +22,9 @@ Next, run the command
 application is running on port 5001 swagger is available on: http://localhost:5001/api
 ## Screenshots
 
-![alt text](https://github.com/Koval0050/veel-test/public/homePage.png?raw=true)
-![alt text](https://github.com/Koval0050/veel-test/public/register.png?raw=true)
-![alt text](https://github.com/Koval0050/veel-test/public/login.png?raw=true)
+![alt text](https://github.com/Koval0050/veel-test/blob/main/public/login.png)
+![alt text](https://github.com/Koval0050/veel-test/blob/main/public/register.png)
+![alt text](https://github.com/Koval0050/veel-test/blob/main/public/homePage.png)
 
 
 ## Authors
