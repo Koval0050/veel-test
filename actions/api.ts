@@ -14,7 +14,6 @@ export const login = async (data: UserInfo) => {
     return response.data;
   } catch (error: unknown) {
     console.error("Login failed:", error);
-    throw new Error("Login request failed");
   }
 };
 
@@ -24,7 +23,6 @@ export const register = async (data: UserInfo) => {
     return response.data;
   } catch (error: unknown) {
     console.error("Registration failed:", error);
-    throw new Error("Registration request failed");
   }
 };
 
@@ -38,6 +36,5 @@ export const fetchUser = async (accessToken: string) => {
     return response.data;
   } catch (error: unknown) {
     console.error("Fetch user failed:", error);
-    throw new Error("Fetch user request failed");
   }
 };

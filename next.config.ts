@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/veel-test",
   images: {
     unoptimized: true,
   },

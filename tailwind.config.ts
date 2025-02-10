@@ -12,6 +12,10 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+
+      spacing: {
+        115: "460px",
+      },
     },
   },
   plugins: [],
