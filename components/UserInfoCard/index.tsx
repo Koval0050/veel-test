@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 
 import { useAuthStore } from "@/state/auth";
 import { Typography } from "../Typography";
-import { TypographyVariants } from "../Typography/constants";
+import { TYPOGRAPHY_VARIANTS } from "../Typography/constants";
 import { Button } from "../Button";
 import { BUTTON_VARIANTS } from "../Button/constants";
 
@@ -23,7 +23,7 @@ export const UserInfoCard = () => {
       <Typography
         className="mb-4"
         text="User Information"
-        variant={TypographyVariants.H3}
+        variant={TYPOGRAPHY_VARIANTS.H3}
       />
 
       {userInfo ? (
@@ -31,19 +31,19 @@ export const UserInfoCard = () => {
           <Typography
             className="mb-2"
             text={`Username: ${userInfo.username}`}
-            variant={TypographyVariants.H6}
+            variant={TYPOGRAPHY_VARIANTS.H6}
           />
           <Typography
             className="mb-2"
             text={`Name: ${userInfo.name}`}
-            variant={TypographyVariants.H6}
+            variant={TYPOGRAPHY_VARIANTS.H6}
           />
         </>
       ) : (
         <Typography
           className="mb-6"
           text="Loading user data..."
-          variant={TypographyVariants.H6}
+          variant={TYPOGRAPHY_VARIANTS.H6}
         />
       )}
 

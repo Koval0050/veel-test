@@ -1,17 +1,16 @@
-import { LoginForm } from "@/app/login/page-components/LoginForm";
-
+import { LoginForm } from "@/app/login/components/LoginForm";
 import { Typography } from "@/components/Typography";
-import { TypographyVariants } from "@/components/Typography/constants";
+import { TYPOGRAPHY_VARIANTS } from "@/components/Typography/constants";
 
 const LoginPage = () => (
   <div className="page-container">
     <div className="text-center mb-8">
-      <Typography text="Login" variant={TypographyVariants.H2} />
+      <Typography text="Login" variant={TYPOGRAPHY_VARIANTS.H2} />
 
       <Typography
         className="mt-2"
         text="Welcome back! Please enter your details to login."
-        variant={TypographyVariants.P}
+        variant={TYPOGRAPHY_VARIANTS.P}
       />
     </div>
 

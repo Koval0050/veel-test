@@ -3,50 +3,45 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 import { FormInput } from "@/components/FormInput";
 import { Button } from "@/components/Button";
 import { BUTTON_VARIANTS } from "@/components/Button/constants";
 import { Typography } from "@/components/Typography";
-import { TypographyVariants } from "@/components/Typography/constants";
+import { TYPOGRAPHY_VARIANTS } from "@/components/Typography/constants";
 
-import { register as registerUser } from "@/actions/api";
-import {
-  RegisterFormData,
-  registerValidationSchema,
-} from "@/utils/validation/register";
+import { login as loginUser } from "@/actions/api";
+import { LoginFormData, loginValidationSchema } from "@/utils/validation/login";
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterFormData>({
-    resolver: zodResolver(registerValidationSchema),
+  } = useForm<LoginFormData>({
+    resolver: zodResolver(loginValidationSchema),
   });
 
-  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const router = useRouter();
 
-  const onSubmit: SubmitHandler<RegisterFormData> = async (data) => {
-    setErrorMessage("");
+  const onSubmit: SubmitHandler<LoginFormData> = async (data) => {
+    setErrorMessage(null);
     setIsLoading(true);
 
-    try {
-      await registerUser({
-        username: data.username,
-        name: data.name,
-        password: data.password,
-      });
-      router.push("/login");
-    } catch (error) {
-      console.error(error);
-      setErrorMessage("Registration failed, please try again.");
-    } finally {
+    const { accessToken } = await loginUser(data);
+
+    if (accessToken) {
+      document.cookie = `token=${accessToken}; path=/;  SameSite=Lax`;
+      setIsLoading(false);
+
+      router.push("/");
+    } else {
+      setErrorMessage("error");
       setIsLoading(false);
     }
   };
@@ -55,8 +50,8 @@ export const RegisterForm = () => {
     <div className="w-115 p-8 bg-white rounded-lg shadow-xl">
       <Typography
         className="mb-6"
-        text="Create an Account"
-        variant={TypographyVariants.H3}
+        text="Login to Your Account"
+        variant={TYPOGRAPHY_VARIANTS.H3}
       />
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -79,31 +74,26 @@ export const RegisterForm = () => {
           register={register}
           error={errors.password?.message}
         />
-        <FormInput
-          name="confirmPassword"
-          type="password"
-          placeholder="Confirm Password"
-          register={register}
-          error={errors.confirmPassword?.message}
-        />
+
         {errorMessage && <p className="text-sm text-red-500">{errorMessage}</p>}
+
         <Button
           variant={BUTTON_VARIANTS.PRIMARY}
-          type="submit"
           isLoading={isLoading}
+          type="submit"
         >
-          Register
+          Login
         </Button>
       </form>
 
-      <div className="text-center mt-4">
+      <div className="mt-4 text-center">
         <Typography
-          text="Already have an account?"
-          variant={TypographyVariants.SPAN}
+          text=" Do not have an account?"
+          variant={TYPOGRAPHY_VARIANTS.SPAN}
         />
 
-        <Link href="/login" className="text-blue-500 hover:underline ml-1">
-          Login
+        <Link href="/register" className="text-blue-500 hover:underline ml-1">
+          Sign Up
         </Link>
       </div>
     </div>

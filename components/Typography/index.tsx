@@ -1,16 +1,16 @@
 import clsx from "clsx";
 
-import { TypographyVariants, VARIANT_STYLES } from "./constants";
+import { TYPOGRAPHY_VARIANTS, VARIANT_STYLES } from "./constants";
 
 type Props = {
   text: string;
-  variant?: TypographyVariants;
+  variant?: TYPOGRAPHY_VARIANTS;
   className?: string;
 };
 
 export const Typography = ({
   text,
-  variant = TypographyVariants.P,
+  variant = TYPOGRAPHY_VARIANTS.P,
   className,
 }: Props) => {
   const Component = variant;

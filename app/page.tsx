@@ -7,7 +7,7 @@ import { fetchUser } from "@/actions/api";
 
 import { UserInfoCard } from "@/components/UserInfoCard";
 import { Typography } from "@/components/Typography";
-import { TypographyVariants } from "@/components/Typography/constants";
+import { TYPOGRAPHY_VARIANTS } from "@/components/Typography/constants";
 
 const HomePage = () => {
   const { setUserInfo } = useAuthStore();
@@ -33,7 +33,7 @@ const HomePage = () => {
       <Typography
         className="mb-6"
         text=" Welcome to the Home Page"
-        variant={TypographyVariants.H1}
+        variant={TYPOGRAPHY_VARIANTS.H1}
       />
 
       <UserInfoCard />
